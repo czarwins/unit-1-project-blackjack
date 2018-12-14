@@ -26,53 +26,46 @@
 //    On lose, your bet is subtracted from your cash
 //    On win, your bet is doubled and added to your cash
 
-let cash = 100;
+let purse = 100;
 let ante = 10;
 
 let faceValue = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const cardSuits = ['Diamonds','Clubs','Hearts','Spades'];
 
-function card(name, face, suit, value) {
-  this.name = name;
-  this.face = face;
-  this.suit = suit;
-  this.value = value;
-}
+
 
 let deck = [];
-
-// console.log(faceValue[0] +  cardSuits[0]);
-
-let newDeck = []
-let j = cardSuits;
-let i;
-makeCard = () => {
-    newDeck.push(cardSuits[j] + faceValue[i])
-    console.log(newDeck);
+let cnt;
+let cntr;
+makeDeck = () => {
+   
+    for(cnt = 0; cnt < faceValue.length; cnt++){
     
-    // makeCard()
-    
-}
-    makeSuit = () => {
-        
-        for(j = 0; j < cardSuits.length; j++){
-            console.log(cardSuits[j]);
-        }
-        
-    }
-    // makeSuit()
-    makeValue = () => {
-        
-        for(i = 0; i < faceValue.length; i++){
-        
-            console.log(faceValue[i])
-            
-        }
-        
-    }
-    // makeValue()
+        for(cntr = 0; cntr < cardSuits.length; cntr++){
 
-function makeNewCard(suit,value){
-    console.log(suit + " " + value);
+            let scoreValue = Number(faceValue[cnt]);
+
+            if(faceValue[cnt] == 'J' || faceValue[cnt] == 'Q' || faceValue[cnt] == 'K'){
+                scoreValue = 10
+            }
+
+            if (faceValue[cnt] == 'A'){
+                scoreValue = 11
+            }
+            let card = {
+                Face: faceValue[cnt], Suit: cardSuits[cntr], Value: scoreValue
+            }
+            deck.push(card)
+        }   
+    }    
 }
-makeNewCard(j,faceValue[0])
+makeDeck()
+console.log(deck);
+
+    
+    
+    
+        
+        
+    
+
