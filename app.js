@@ -29,10 +29,9 @@
 let purse = 100;
 let ante = 10;
 
+// MAKE THE DECK
 let faceValue = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const cardSuits = ['Diamonds','Clubs','Hearts','Spades'];
-
-
 
 let deck = [];
 let cnt;
@@ -62,8 +61,25 @@ makeDeck = () => {
 makeDeck()
 console.log(deck);
 
+// MAKE DEAL BUTTON
+deal = () => {
+    document.getElementById('dealBtn')
+    console.log('deal');  
+}
+
+// MAKE HIT BUTTON
+hit = () => {
+    document.getElementById('hitBtn')
+    console.log('hit');
     
+}
+// MAKE STAND BUTTON
+stand = () => {
+    document.getElementById('standBtn')
+    console.log('stand');
     
+} 
+
     
         
         
