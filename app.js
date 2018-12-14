@@ -30,49 +30,55 @@ let purse = 100;
 let ante = 10;
 
 // MAKE THE DECK
-let faceValue = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
-const cardSuits = ['Diamonds','Clubs','Hearts','Spades'];
+let faceValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+const cardSuits = ['Diamonds', 'Clubs', 'Hearts', 'Spades'];
 
 let deck = [];
 let cnt;
 let cntr;
 let card;
 makeDeck = () => {
-   
-    for(cnt = 0; cnt < faceValue.length; cnt++){
-    
-        for(cntr = 0; cntr < cardSuits.length; cntr++){
+
+    for (cnt = 0; cnt < faceValue.length; cnt++) {
+
+        for (cntr = 0; cntr < cardSuits.length; cntr++) {
 
             let scoreValue = Number(faceValue[cnt]);
 
-            if(faceValue[cnt] == 'J' || faceValue[cnt] == 'Q' || faceValue[cnt] == 'K'){
+            if (faceValue[cnt] == 'J' || faceValue[cnt] == 'Q' || faceValue[cnt] == 'K') {
                 scoreValue = 10
             }
 
-            if (faceValue[cnt] == 'A'){
+            if (faceValue[cnt] == 'A') {
                 scoreValue = 11
             }
-             card = {
-                Face: faceValue[cnt], Suit: cardSuits[cntr], Value: scoreValue
+            card = {
+                face: faceValue[cnt], suit: cardSuits[cntr], value: scoreValue
             }
             deck.push(card)
-        }   
-    }    
+        }
+    }
 }
-console.log(card);
+
 makeDeck()
 // console.log(deck);
 // MAKE DEAL BUTTON
 // deal button pulls 2 random cards and pushes them into array playerHand
-let randomDeal =  deck[Math.floor(Math.random()*52)];
+// let randomDeal = deck[Math.floor(Math.random() * 52)];
 playerHand = [];
 deal = () => {
     document.getElementById('dealBtn')
-    for(i = 0;i <= 1  ;i++){
+    for (i = 0; i <= 1; i++) {
+        const randomDeal = deck[Math.floor(Math.random() * 52)]
         playerHand.push(randomDeal)
-        console.log(deck[Math.floor(Math.random()*52)]);
-         
-    }     
+    }
+    console.log(playerHand)
+    let totalValue = 0
+    for (let hndCnt = 0; hndCnt < playerHand.length; hndCnt++) {
+        totalValue += playerHand[hndCnt].value
+    }
+
+    console.log(totalValue)
 }
 
 // Player score add the scoreValues together
@@ -81,16 +87,26 @@ deal = () => {
 // MAKE HIT BUTTON
 hit = () => {
     document.getElementById('hitBtn')
-    console.log('hit');
+    const hitHand = deck[Math.floor(Math.random() * 52)]
+    playerHand.push(hitHand)
+    
+    console.log(playerHand);
+    let totalValue = 0
+    for (let hitHndCnt = 0; hitHndCnt < playerHand.length; hitHndCnt++) {
+        totalValue += playerHand[hitHndCnt].value
+    }
+    console.log(totalValue);
+    
+    
 }
 // MAKE STAND BUTTON
 stand = () => {
     document.getElementById('standBtn')
     console.log('stand');
-} 
+}
 
-    
-        
-        
-    
+
+
+
+
 
