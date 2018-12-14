@@ -60,24 +60,32 @@ makeDeck = () => {
 }
 makeDeck()
 console.log(deck);
-
 // MAKE DEAL BUTTON
+let randomDeal =  deck[Math.floor(Math.random()*52)];
+playerHand = [];
 deal = () => {
     document.getElementById('dealBtn')
-    console.log('deal');  
+    for(i = 0;i <= 1  ;i++){
+        playerHand.push(randomDeal)
+        console.log(deck[Math.floor(Math.random()*52)]);
+         
+    }
+    // console.log(deck[Math.floor(Math.random()*52)])
+    // console.log(deck[Math.floor(Math.random()*52)])
+
+    // console.log('deal');  
 }
+
 
 // MAKE HIT BUTTON
 hit = () => {
     document.getElementById('hitBtn')
     console.log('hit');
-    
 }
 // MAKE STAND BUTTON
 stand = () => {
     document.getElementById('standBtn')
     console.log('stand');
-    
 } 
 
     
