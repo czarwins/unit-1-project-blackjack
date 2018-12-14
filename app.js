@@ -36,6 +36,7 @@ const cardSuits = ['Diamonds','Clubs','Hearts','Spades'];
 let deck = [];
 let cnt;
 let cntr;
+let card;
 makeDeck = () => {
    
     for(cnt = 0; cnt < faceValue.length; cnt++){
@@ -51,16 +52,18 @@ makeDeck = () => {
             if (faceValue[cnt] == 'A'){
                 scoreValue = 11
             }
-            let card = {
+             card = {
                 Face: faceValue[cnt], Suit: cardSuits[cntr], Value: scoreValue
             }
             deck.push(card)
         }   
     }    
 }
+console.log(card);
 makeDeck()
-console.log(deck);
+// console.log(deck);
 // MAKE DEAL BUTTON
+// deal button pulls 2 random cards and pushes them into array playerHand
 let randomDeal =  deck[Math.floor(Math.random()*52)];
 playerHand = [];
 deal = () => {
@@ -69,12 +72,10 @@ deal = () => {
         playerHand.push(randomDeal)
         console.log(deck[Math.floor(Math.random()*52)]);
          
-    }
-    // console.log(deck[Math.floor(Math.random()*52)])
-    // console.log(deck[Math.floor(Math.random()*52)])
-
-    // console.log('deal');  
+    }     
 }
+
+// Player score add the scoreValues together
 
 
 // MAKE HIT BUTTON
