@@ -68,7 +68,7 @@ makeDeck()
 playerHand = [];
 deal = () => {
     document.getElementById('dealBtn')
-    for (i = 0; i <= 1; i++) {
+    for (dealCnt = 0; dealCnt <= 1; dealCnt++) {
         const randomDeal = deck[Math.floor(Math.random() * 52)]
         playerHand.push(randomDeal)
     }
@@ -79,6 +79,9 @@ deal = () => {
     }
 
     console.log(totalValue)
+    if(totalValue > 21){
+        totalValue = (totalValue - 10)
+    }
 }
 
 // Player score add the scoreValues together
@@ -97,12 +100,19 @@ hit = () => {
     }
     console.log(totalValue);
     
-    
+    if(totalValue > 21){
+        alert("You Lose")
+    }
 }
 // MAKE STAND BUTTON
+dealerHand = [];
 stand = () => {
     document.getElementById('standBtn')
-    console.log('stand');
+    alert("It's the Dealer's turn")
+    const dealerTurn = deck[Math.floor(Math.random() * 52)]
+    dealerHand.push(dealerTurn)
+    console.log(dealerTurn);
+
 }
 
 
