@@ -49,12 +49,10 @@ makeDeck = () => {
                 scoreValue = 10
             }
 
-            if (faceValue[cnt] == 'A') {
-                scoreValue = 11
-            }
-            card = {
-                face: faceValue[cnt], suit: cardSuits[cntr], value: scoreValue
-            }
+            if (faceValue[cnt] == 'A') { scoreValue = 11  }
+
+            card = {  face: faceValue[cnt], suit: cardSuits[cntr], value: scoreValue  }
+
             deck.push(card)
         }
     }
@@ -67,19 +65,27 @@ makeDeck()
 // let randomDeal = deck[Math.floor(Math.random() * 52)];
 playerHand = [];
 deal = () => {
+
     document.getElementById('dealBtn')
+
     for (dealCnt = 0; dealCnt <= 1; dealCnt++) {
+
         const randomDeal = deck[Math.floor(Math.random() * 52)]
         playerHand.push(randomDeal)
     }
     console.log(playerHand)
+
     let totalValue = 0
+
     for (let hndCnt = 0; hndCnt < playerHand.length; hndCnt++) {
+    
         totalValue += playerHand[hndCnt].value
     }
 
     console.log(totalValue)
+
     if(totalValue > 21){
+
         totalValue = (totalValue - 10)
     }
 }
@@ -108,14 +114,38 @@ hit = () => {
 dealerHand = [];
 stand = () => {
     document.getElementById('standBtn')
-    alert("It's the Dealer's turn")
-    const dealerTurn = deck[Math.floor(Math.random() * 52)]
-    dealerHand.push(dealerTurn)
-    console.log(dealerTurn);
+    // alert("It's the Dealer's turn")
+    
+    for(stnCnt = 0; stnCnt <= 1; stnCnt++){
 
+        const dealerTurn = deck[Math.floor(Math.random() * 52)]
+        dealerHand.push(dealerTurn)
+
+    }
+    console.log(dealerHand);
+
+        // console.log(dealerHand[stnCnt]);    
+    
 }
 
+//playerHand = [];
+// deal = () => {
+//     document.getElementById('dealBtn')
+//     for (dealCnt = 0; dealCnt <= 1; dealCnt++) {
+//         const randomDeal = deck[Math.floor(Math.random() * 52)]
+//         playerHand.push(randomDeal)
+//     }
+//     console.log(playerHand)
+//     let totalValue = 0
+//     for (let hndCnt = 0; hndCnt < playerHand.length; hndCnt++) {
+//         totalValue += playerHand[hndCnt].value
+//     }
 
+//     console.log(totalValue)
+//     if(totalValue > 21){
+//         totalValue = (totalValue - 10)
+//     }
+// }
 
 
 
