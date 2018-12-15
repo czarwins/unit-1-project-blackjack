@@ -41,8 +41,11 @@ makeDeck = () => {
 
     for (cnt = 0; cnt < faceValue.length; cnt++) {
 
-        for (cntr = 0; cntr < cardSuits.length; cntr++) {
-
+        for (
+            cntr = 0; 
+            cntr < cardSuits.length; 
+            cntr++
+            ) {
             let scoreValue = Number(faceValue[cnt]);
 
             if (faceValue[cnt] == 'J' || faceValue[cnt] == 'Q' || faceValue[cnt] == 'K') {
@@ -63,26 +66,30 @@ makeDeck()
 // MAKE DEAL BUTTON
 // deal button pulls 2 random cards and pushes them into array playerHand
 // let randomDeal = deck[Math.floor(Math.random() * 52)];
+let totalValue = 0;
 playerHand = [];
 deal = () => {
 
     document.getElementById('dealBtn')
 
-    for (dealCnt = 0; dealCnt <= 1; dealCnt++) {
-
+    for (
+        dealCnt = 0; 
+        dealCnt <= 1; 
+        dealCnt++
+        ) {
         const randomDeal = deck[Math.floor(Math.random() * 52)]
         playerHand.push(randomDeal)
     }
     console.log(playerHand)
 
-    let totalValue = 0
-
-    for (let hndCnt = 0; hndCnt < playerHand.length; hndCnt++) {
-    
+    for (let hndCnt = 0; 
+        hndCnt < playerHand.length; 
+        hndCnt++
+        ) {
         totalValue += playerHand[hndCnt].value
     }
 
-    console.log(totalValue)
+      console.log(totalValue)
 
     if(totalValue > 21){
 
@@ -90,23 +97,31 @@ deal = () => {
     }
 }
 
+
 // Player score add the scoreValues together
 
 
 // MAKE HIT BUTTON
 hit = () => {
+
     document.getElementById('hitBtn')
+
     const hitHand = deck[Math.floor(Math.random() * 52)]
     playerHand.push(hitHand)
-    
     console.log(playerHand);
+
     let totalValue = 0
-    for (let hitHndCnt = 0; hitHndCnt < playerHand.length; hitHndCnt++) {
+
+    for (
+        let hitHndCnt = 0; 
+        hitHndCnt < playerHand.length; 
+        hitHndCnt++) {
         totalValue += playerHand[hitHndCnt].value
     }
     console.log(totalValue);
     
     if(totalValue > 21){
+
         alert("You Lose")
     }
 }
@@ -116,37 +131,70 @@ stand = () => {
     document.getElementById('standBtn')
     // alert("It's the Dealer's turn")
     
-    for(stnCnt = 0; stnCnt <= 1; stnCnt++){
-
+    for(
+        stnCnt = 0; 
+        stnCnt <= 1; 
+        stnCnt++
+        ){
         const dealerTurn = deck[Math.floor(Math.random() * 52)]
         dealerHand.push(dealerTurn)
 
     }
     console.log(dealerHand);
 
-        // console.log(dealerHand[stnCnt]);    
+    let dHandValue = 0
+
+    for(
+        let dHndCnt = 0; 
+        dHndCnt < dealerHand.length; 
+        dHndCnt++
+        ){
+        dHandValue += dealerHand[dHndCnt].value
+    }
+        console.log(dHandValue);    
+        // console.log(totalValue);
+        
     
 }
 
-//playerHand = [];
+
+
+let scoreCheck = () =>{
+    console.log(totalValue);
+    
+}
+scoreCheck()
+// scoreCheck.push(dHandValue)
+
+
+
+// let totalValue;
+// playerHand = [];
 // deal = () => {
+
 //     document.getElementById('dealBtn')
+
 //     for (dealCnt = 0; dealCnt <= 1; dealCnt++) {
+
 //         const randomDeal = deck[Math.floor(Math.random() * 52)]
 //         playerHand.push(randomDeal)
 //     }
 //     console.log(playerHand)
+
 //     let totalValue = 0
+
 //     for (let hndCnt = 0; hndCnt < playerHand.length; hndCnt++) {
+    
 //         totalValue += playerHand[hndCnt].value
 //     }
 
 //     console.log(totalValue)
+
 //     if(totalValue > 21){
+
 //         totalValue = (totalValue - 10)
 //     }
 // }
 
-
-
-
+// **********
+// // deal = () => {
